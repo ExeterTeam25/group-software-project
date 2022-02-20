@@ -1,11 +1,12 @@
 from email import message
+from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import *
 from .models import Category, Challenges
 
 def home(request):
@@ -70,3 +71,25 @@ def registerPage(request):
 @login_required(login_url='/login')
 def userProfile(request):
     return render(request, 'base/profile.html',{})
+
+# Code for uploading photos 
+def uploading_image_view(request):
+    if request.method == 'POST':
+        form = ImageUpload(request.POST, request.FILES)
+  
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = ImageUpload()
+    return render(request, 'image_upload.html', {'form' : form})
+  
+# Success message for a successfully uploaded photo 
+def success(request):
+    return HttpResponse('successfully uploaded')
+
+# Code for viewing photos 
+def display_images(request): 
+    if request.method == 'GET':
+        Photos = Photo.objects.all() 
+        return render(request, 'display_images.html', {'images' : Photos})

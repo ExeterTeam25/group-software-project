@@ -28,3 +28,8 @@ class Challenges(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+# For handling photo upload of a location 
+class Photo(models.Model):
+	name = models.CharField(max_length=50)
+	photograph = models.ImageField(upload_to='images/')
