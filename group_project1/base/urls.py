@@ -12,7 +12,7 @@ urlpatterns = [
     path('profile/',views.userProfile,name='profile'),
     path('image_upload/', views.uploading_image_view, name = 'image_upload'),
     path('success/', views.success, name = 'success'),
-    path('images', views.display_images, name = 'images'),
+    path('images/', views.display_images, name = 'images'),
 ]
 
 # For handling photos in DEBUG 
