@@ -2,7 +2,7 @@
 
 ## Introduction
 
-UniExplore is an application designed to help students explore their university and connect with their peers. Students can complete challenges at various locations across campus, see what their classmates did for those challenges, and like the responses of others.
+UniExplore is an application designed to help students explore their university and connect with their peers. Students can complete challenges at various locations across campus, see what their classmates did for those challenges, and like the responses of others. The finished project can be found at [UniExplore.co.uk](https://UniExplore.co.uk)
 
 ## Prerequisites:
 In the root directory run:
